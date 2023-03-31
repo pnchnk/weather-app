@@ -19,7 +19,6 @@ import {useAppSelector, useAppDispatch} from '../redux/hooks';
 
 //components
 import DateItem from '../components/DateItem/Index';
-import Loading from '../components/Loading';
 
 //types
 import {Weather, WeatherResponse} from '../types/weather';
@@ -39,7 +38,7 @@ const ItemDivider = () => {
   return <View style={styles.itemDivider} />;
 };
 
-const Home = ({loading, error, navigation}: Props) => {
+const Home = ({navigation}: Props) => {
   //redux state
   const weather = useAppSelector(state => state.weather.data);
 
@@ -62,16 +61,6 @@ const Home = ({loading, error, navigation}: Props) => {
     );
     setFilteredDays(days);
   }, [weather, currentDate]);
-
-  //when loading
-  if (loading) {
-    return <Loading />;
-  }
-
-  //when error
-  if (error) {
-    return <Text>{error}</Text>;
-  }
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [isDay, setIsDay] = useState<boolean>();
@@ -133,7 +122,7 @@ const Home = ({loading, error, navigation}: Props) => {
         <View style={styles.titleContainer}>
           <View
             // eslint-disable-next-line react-native/no-inline-styles
-            style={{marginTop: 50}}>
+            style={{marginTop: 50, alignItems: 'center'}}>
             <Text style={styles.title}>Weather in {weather?.city.name}</Text>
             <FlatList
               data={filteredDays}
