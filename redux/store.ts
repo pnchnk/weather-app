@@ -11,6 +11,7 @@ import {weatherSaga} from './sagas/weather';
 
 //reducers
 import {weatherReducer} from './reducers/weather';
+import weatherSlice from './slice/dayWeather';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -18,6 +19,7 @@ const middleware = [sagaMiddleware];
 
 const rootReducer = combineReducers({
   weather: weatherReducer,
+  day: weatherSlice,
 });
 
 export const store = configureStore({

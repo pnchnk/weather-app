@@ -19,5 +19,3 @@ function* fetchWeather(action: any) {
 export function* weatherSaga() {
   yield takeLatest(WeatherActionTypes.FETCH_WEATHER_REQUEST, fetchWeather);
 }
-
-
