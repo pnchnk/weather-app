@@ -55,6 +55,10 @@ const DailyWeather = ({route}: any) => {
       imgPath: require('../assets/img/free-icon-sun-rays-3385807.png'),
       gradient: ['#2980B9', '#6DD5FA', '#FFFFFF'],
     },
+    Drizzle: {
+      imgPath: require('../assets/img/rainy.png'),
+      gradient: ['#4CA1AF', '#C4E0E5'],
+    },
   };
   //react-navigation params
   const {item} = route.params;
